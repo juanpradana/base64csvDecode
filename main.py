@@ -26,7 +26,7 @@ def hex_to_timestamp(hex_str, start_index):
         return None
 
 # Membaca file CSV
-df = pd.read_csv('dataTest.csv')
+df = pd.read_csv('avirlink_S2.1_20_RAPP.csv')
 
 # Menambahkan kolom 'data_hex'
 df['data_hex'] = df.iloc[:, 7].apply(base64_to_hex)
@@ -40,6 +40,6 @@ df['timestamp2'] = df['data_hex'].apply(lambda x: hex_to_timestamp(x, 32))
 df['timestamp3'] = df['data_hex'].apply(lambda x: hex_to_timestamp(x, 52))
 
 # Menyimpan kembali ke file CSV
-df.to_csv('output\dataTest.csv', index=False)
+df.to_csv('output\output_avirlink_S2.1_20_RAPP.csv', index=False)
 
 print("Proses selesai. Data telah disimpan dalam 'output_file.csv'.")
